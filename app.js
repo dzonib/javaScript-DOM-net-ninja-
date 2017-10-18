@@ -1,6 +1,4 @@
-const kafka = document.querySelectorAll('#book-list li .name');
+const kafka = document.querySelector('#book-list');
 
 
-kafka.forEach((e) => {
-  e.innerHTML += ' (book title)';
-});
+kafka.innerHTML += '<p> This is a daamn good Book-list</p>';
