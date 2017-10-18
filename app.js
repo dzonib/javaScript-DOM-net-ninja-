@@ -1,4 +1,4 @@
-const kafka = document.querySelector('#book-list');
+const banner = document.querySelector('#page-banner');
 
 
-kafka.innerHTML += '<p> This is a daamn good Book-list</p>';
+console.log('#page bannner node type is: ' + banner.nodeType);
