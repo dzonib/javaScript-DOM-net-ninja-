@@ -1,26 +1,22 @@
-const banner = document.querySelector('#book-list');
+const bookList = document.querySelector('#book-list');
 
 
-//For Parents:
+//For Next Siblings:
 
-console.log('book list parent node is: ', banner.parentNode);
-//or
-console.log('book-list parent element is: ', banner.parentElement);
-//returns parentNode (with children elements)
-//"Out of 99 times out of a 100, these two things will return same element"
+console.log('The next sibling is: ', bookList.nextSibling);
+//you will get Text node (because of line-break)
+console.log('The next sibling is: ', bookList.nextElementSibling);
+//now its real sibling.
+
+//For Previous Sibling:
+
+console.log('The next sibling is: ', bookList.previousSibling);
+//you will get Text node (because of line-break)
+console.log('The next sibling is: ', bookList.previousElementSibling);
+//goody.
 
 
-console.log('book-list grand-parent element is: ', banner.parentElement.parentElement);
-//returns parent of booklist parent.
+//example:
 
-
-
-//For Children:
-
-//if you type:
-console.log(banner.childNodes);
-//you will get 'text, h2.title, text, ul, text'. Text represents a line break.
-//but is returned as NodeList (can be used as array)
-console.log(banner.children);
-//without text this time '[h2.title, ul]', but its returned as HTMLcolection (cant be used as array, needs conversion)
-//(Array.from())
+bookList.previousElementSibling.querySelector('#search-books').innerHTML+='<p>Good Books below!</p>';
+//you can use </br> if in same paragraph.
