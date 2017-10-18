@@ -1,18 +1,26 @@
-const banner = document.querySelector('#page-banner');
+const banner = document.querySelector('#book-list');
 
 
-console.log('#page bannner node type is: ' + banner.nodeType);
-//node types Definition and Usage on https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType
+//For Parents:
 
-console.log('#page bannner node name is: ' + banner.nodeName);
-//returns node name (div in this case)
+console.log('book list parent node is: ', banner.parentNode);
+//or
+console.log('book-list parent element is: ', banner.parentElement);
+//returns parentNode (with children elements)
+//"Out of 99 times out of a 100, these two things will return same element"
 
-console.log('#page bannner node has child nodes: ' + banner.hasChildNodes());
-//returns true or false
 
-let clonedBanner = banner.cloneNode(true);
-//true if you want to clone content that is in DIV as well(children), 
-console.log(clonedBanner);
-//false only for DIV.
-clonedBanner = banner.cloneNode(false);
-console.log(clonedBanner);
+console.log('book-list grand-parent element is: ', banner.parentElement.parentElement);
+//returns parent of booklist parent.
+
+
+
+//For Children:
+
+//if you type:
+console.log(banner.childNodes);
+//you will get 'text, h2.title, text, ul, text'. Text represents a line break.
+//but is returned as NodeList (can be used as array)
+console.log(banner.children);
+//without text this time '[h2.title, ul]', but its returned as HTMLcolection (cant be used as array, needs conversion)
+//(Array.from())
