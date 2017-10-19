@@ -1,22 +1,27 @@
-const bookList = document.querySelector('#book-list');
+/*const h2 = document.querySelector('#book-list h2');
+
+h2.addEventListener('click', (e) => {
+  console.log(e.target);
+  console.log(e);
+});
+Simple example of adding events*/
 
 
-//For Next Siblings:
+const btns = document.querySelectorAll('#book-list .delete');
 
-console.log('The next sibling is: ', bookList.nextSibling);
-//you will get Text node (because of line-break)
-console.log('The next sibling is: ', bookList.nextElementSibling);
-//now its real sibling.
+btns.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    const li = e.target.parentNode;
+    li.parentNode.removeChild(li);
+  });
+});
+//more complicated example of events.
+//its deleting books from list.
 
-//For Previous Sibling:
+const preventDefault = document.querySelector('#page-banner a');
 
-console.log('The next sibling is: ', bookList.previousSibling);
-//you will get Text node (because of line-break)
-console.log('The next sibling is: ', bookList.previousElementSibling);
-//goody.
-
-
-//example:
-
-bookList.previousElementSibling.querySelector('#search-books').innerHTML+='<p>Good Books below!</p>';
-//you can use </br> if in same paragraph.
+preventDefault.addEventListener('click', (e) => {
+  e.preventDefault();
+  console.log('Navigation to ' , e.target.textContent, ' is prevented for safety reasons!');
+});
+//Prevents default behaviour! (link is disabled)
