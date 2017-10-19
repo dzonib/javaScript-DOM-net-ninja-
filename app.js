@@ -1,10 +1,15 @@
-//better model, works with added book titles.
+//easy way to select forms is:
+//document.forms (returns __proto__:HTMLCollection (must make array with Array.from() if you wanna use .forEach))
 
-const list = document.querySelector('#book-list ul');
 
-list.addEventListener('click', (e) => {
-  li = e.target.parentNode;
-  li.parentNode.removeChild(li);
+//document.forms[0] or document.forms['(id(without # - as a string - ('add-book')))']
+
+
+const addForm = document.forms['add-book'];
+
+addForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const getInput = addForm.querySelector('input[type="text"]').value;
+  console.log(getInput);
 });
-
-//This is good way to delete books.
+//getInput is returning whtever you typed in form search bar.
