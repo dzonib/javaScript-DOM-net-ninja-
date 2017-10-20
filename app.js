@@ -24,5 +24,13 @@ getForm.addEventListener('submit', (e) => {
   delBtn.textContent='delete';
   //Adding classes to elements:
   bookName.classList.add('name');
-  delBtn.classList.add('delete');  
+  delBtn.classList.add('delete');
 });
+//changing adding removing atributes:
+var book = querySelector('li:first-child .name');
+book.getAttribute('class'); //returns class name
+book.getAttribute('href'); //returns null
+book.setAttribute('class', 'name-2'); //changes class name to name-2
+book.hasAttribute('class'); //returns true, checkes if it has class atributes
+book.removeAttribute('class'); //removes class atribute from element.
+//you can use .setAttribute to give it back.
