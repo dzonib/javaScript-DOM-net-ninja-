@@ -6,8 +6,6 @@ getUl.addEventListener('click', (e) => {
   };
 });
 
-
-
 const getForm = document.forms['add-book'];
 getForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -21,7 +19,10 @@ getForm.addEventListener('submit', (e) => {
   li.appendChild(bookName);
   li.appendChild(delBtn);
   getUl.appendChild(li);
-//adding text-content to elements:  
+//adding text-content to elements:
   bookName.textContent=getValue;
   delBtn.textContent='delete';
+  //Adding classes to elements:
+  bookName.classList.add('name');
+  delBtn.classList.add('delete');  
 });
