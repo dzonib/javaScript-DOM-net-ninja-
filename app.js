@@ -1,15 +1,27 @@
-//easy way to select forms is:
-//document.forms (returns __proto__:HTMLCollection (must make array with Array.from() if you wanna use .forEach))
-
-
-//document.forms[0] or document.forms['(id(without # - as a string - ('add-book')))']
-
-
-const addForm = document.forms['add-book'];
-
-addForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const getInput = addForm.querySelector('input[type="text"]').value;
-  console.log(getInput);
+const getUl = document.querySelector('#book-list ul');
+getUl.addEventListener('click', (e) => {
+  if (e.target.className == 'delete') {
+    const lis = e.target.parentNode;
+    lis.parentNode.removeChild(lis);
+  };
 });
-//getInput is returning whtever you typed in form search bar.
+
+
+
+const getForm = document.forms['add-book'];
+getForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const getValue = getForm.querySelector('input[type="text"]').value
+  console.log(getValue);
+//creating elements:
+  const li = document.createElement('li');
+  const bookName = document.createElement('span');
+  const delBtn = document.createElement('span');
+//appending (adding elements):
+  li.appendChild(bookName);
+  li.appendChild(delBtn);
+  getUl.appendChild(li);
+//adding text-content to elements:  
+  bookName.textContent=getValue;
+  delBtn.textContent='delete';
+});
